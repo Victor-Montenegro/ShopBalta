@@ -1,0 +1,130 @@
+
+	
+		
+			
+				
+					EMENTA
+						
+						APIs Data Drive com ASP.NETCore 3 e EF 3
+							
+							
+								API voltada a orientação a dados. cobrindo toda a parte de CRUD, sendo uma api completa
+								com todos os metodos necessarios para criar uma api voltada a dados.
+								
+									Autentificacao e autorização
+									Perfis de acesso
+									Boas praticas na API:
+										Cache
+										Performace
+										Compressão
+										Otimização
+										Documentação
+										Versionamento
+										
+									
+									Utilizando azure para uma basica introdução a Apis escalaveis na nuvem
+				
+				
+				
+				
+				
+				
+					FERRAMENTAS NECESSARIAS PARA DEV
+							
+								Sem servico rodando na maquina: sera utilizado para ter um servidor do sql server
+							docker: https://www.docker.com/get-started
+							
+								Uma forma visual de utilizar o docker, podendo ter uma visibilidade das maquinas utilizadas 
+								e tendo o total controle sem utilziar linhas de comando
+							OPCIONAL kitematic: https://github.com/docker/kitematic/releases
+							
+							
+							.NET Core 3 SDK
+							
+							
+							Azure data studio
+					
+					
+					
+					
+					
+					
+					CONFIGURACOES NO DOCKER
+							
+							Usaremos um servidor de mssql-server-linux
+									
+									Configuracoes necessarias para funcionamento	
+										
+										GENERAL
+											ACCEPT_EULA : Y
+										
+											MSSQL_SA_PASSWORD : @$!H123Ss2
+										
+										Hostname / Ports
+											garantir que esteja rodando na porta 1433
+													DOCKER PORT : 1433
+							
+							
+							
+					
+					
+					
+					
+					
+					CONFIGURACOES DO PROJETO SHOP
+						
+							Startup
+								Na Versão 3.0, temos a nova forma de se trabalhar com APIs utilizando 
+									using Microsoft.Extensions.Configuration;
+									using Microsoft.Extensions.DependencyInjection;
+									using Microsoft.Extensions.Hosting;
+								
+								ConfigureServices
+									Método responsavel por endicar quais servicos do dotnet core a aplicação ira utilizar
+								
+								Configure 
+									Realizar as configurações necessárias dos serviços endicados no método ConfigureServices
+									
+										IApplicationBuilder --> Tudo que quiser saber sobre sua aplicação
+										
+										IWebHostinEnvironment ---> Variavel responsavel por endicar se está em ambiente de desenvolvimento ou de producao
+											Pode realizar o chaviamento
+											
+										UseDeveloperExceptionPage --> Quando nossa aplicação está em ambiente de desenvolvimento, usamos esse método para ter um descrição mais detalhada de erros 
+										
+										UseHtttpsRedirection --> força a aplicação responda apenas em https
+											Primeiro passoa a nivel de infrestutura e boa pratica 
+										
+										UseRouting --> padrao de rota do asp net mvc
+										
+										UseAuthorization ---> autentificacao
+										
+										UseEndPoints ---> Mapeamento dos endPoint
+											Por padrão, dando a possibilidade de configuracoes das rotas nas proprias controllers
+										
+							Program
+								Toda Aplicação Console, se tem uma classe program.cs, também pode ser chamada de aplicações
+								self-Hosting, ou seja, são aplicações auto hospedadas.
+										Podendo se auto geranciar
+										Conseguindo receber e manipular requisições sem a intevensão do IIS
+							
+							
+							appsettings.Development.json
+								Arquivo responsavel pelas configurações quando o ambiente estiver em desenvolvimento
+								
+							appsettings.json
+								Responsavel quando a aplicação estiver em ambiente de produção
+								
+					
+					
+					Data Drive - APIs orientadas a dados 
+						Em muitos cenarios quando voce começa a criar a sua API, pode identificar que não tem
+						regras de negocios em certas partes do seu dominio, ou seja, quando voce comeceu a criar seu produto
+						onde voce quer ter uma API para esse produto, para suportar frontEnds novos. Tendo a situação de apenas o cadastro, como de pessoas,produtos,categorias,não é necessario
+						uma regra de negocio ou aplicar arquitetura limpa, DDD,csqrs. E a grande ideia de ter dominios ricos, e a execução de testes de unidades.Então por isso o padrao Data Drive, quando
+						e aplicações que são apenas espelho do banco de dados(CRUD) essa formato de API e perfeito.
+						
+				
+				
+				System.ComponentModel.DataAnnotations
+						Utilizando o dataAnnotations, facilita e ameniza os erros na hora da criação do banco de dados atraves do EF utilizando suas tags.
