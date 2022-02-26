@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop.Filters;
 using Shop.Models;
-using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Shop.Controllers
 {
@@ -10,48 +11,43 @@ namespace Shop.Controllers
     {
         [HttpGet]
         [Route("")]
-        public string Get()
+        public async Task<ActionResult<List<Category>>> Get()
         {
-            return "Get";
+            List<Category> category = new List<Category>();
+
+            return category;
         }
 
         [HttpGet]
         [Route("{id:int}")]
-        public string GetById(int id)
+        public async Task<ActionResult<Category>> GetById(int id)
         {
-            return "Get" + id.ToString();
+            Category category = new Category();
+            return category;
         }
 
-        [HttpPost]       
+        [HttpPost]
         [Route("")]
         [ValidationErrors]
 
-        public IActionResult Post([FromBody] Category model)
+        public async Task<ActionResult<Category>> Post([FromBody] Category model)
         {
-            try
-            {
-                return Ok(model);
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
-
-        [HttpDelete]
-        [Route("")]
-        public string Delete()
-        {
-            return "Delete";
+            return Ok(model);
         }
 
         [HttpPut]
-        [Route("")]
-        public string Put()
+        [Route("{id:int}")]
+        public async Task<ActionResult<Category>> Put(int id,[FromBody] Category category)
         {
-            return "Put";
+            return category;
         }
 
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<ActionResult<Category>> Delete()
+        {
+            Category category = new Category();
+            return category;
+        }
     }
 }
