@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Shop.Data;
 using Shop.Filters;
+using Shop.Language;
 using Shop.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -30,16 +32,32 @@ namespace Shop.Controllers
         [Route("")]
         [ValidationErrors]
 
-        public async Task<ActionResult<Category>> Post([FromBody] Category model)
+        public async Task<ActionResult<Category>> Post(
+            [FromBody] Category model,
+            [FromServices] DataContext context)
         {
-            return Ok(model);
+            try
+            {
+                context.Category.Add(model);
+                await context.SaveChangesAsync();
+
+                return Ok(model);
+            }
+            catch
+            {
+                return BadRequest(new { Message = ApiMsg.EXE0001});
+            }
         }
 
         [HttpPut]
         [Route("{id:int}")]
-        public async Task<ActionResult<Category>> Put(int id,[FromBody] Category category)
+        [ValidationErrors]
+        public async Task<ActionResult<Category>> Put(int id,[FromBody] Category model)
         {
-            return category;
+            if (!id.Equals(model.Id))
+                return NotFound(new { Message = ApiMsg.ISE0006 });
+
+            return model;
         }
 
         [HttpDelete]

@@ -128,3 +128,119 @@
 				
 				System.ComponentModel.DataAnnotations
 						Utilizando o dataAnnotations, facilita e ameniza os erros na hora da criação do banco de dados atraves do EF utilizando suas tags.
+				
+				
+				
+				
+				Quando queremos realizar um referencia de um entidade dentro de uma class e não queremos so o Id, mas outros atributos, é necessario instanciar a class:
+							
+								Ex.:
+									public class Product
+										
+											public int CategoryId { get; set; } ---> Caso eu queira salvar só o Id da category, dessa forma e mais do que o suficiente.
+
+											public Category Category { get; set; } ---> 
+												Mas se caso eu queira ter as informaçoes alem do Id, tenho que criar uma propriedade da Category. Chamada tambem de Propriedade de referencia 
+												Na situação de querer toda a informacao da class Category, pode remover a propridade CategoryId, pois essa propridade já e o bastante para o EF entender
+												se caso queria realizar um Include.
+				
+				
+				
+				
+				app.UseEndpoints(endpoints =>{ endpoints.MapControllers(); });
+					
+						Essa configuração dentro do Startup.Configure, basicamente informa que as configurações das rotas/endpoint do seu projeto, quem terá a responsabilidade e as 
+						proprias controllers, utilizando e herdando do ControllerBase
+						
+							Ex.:
+									No projeto e definido como default: https://localhost:5001
+									
+									[Route("Categories")] --> Para chegar nessa Controller a rota vai ser :  https://localhost:5001/Categories
+									public class CategoryController : ControllerBase {
+									
+										[Route("Metodo")] ---> para chegar nesse metodo da controller a url: https://localhost:5001/Categories/Metodo
+																Caso não tenha nenhuma rota( [Route("")] ) definida a rota vai ser :https://localhost:5001/Categories
+										public string MeuMetodo(){
+											return "Ola mundo";
+										}
+									
+									}
+				
+				[Route("{id}")]
+					
+						Estou sinalizando que essa rota vai receber um parametro na sua url
+							Utilizando para pegar informacoes como Id de alguma entidade no banco
+							
+							E de boa pratica realizar a tipagem do tipo de parametro, para evitar eventuais erros
+										  ---------------------
+										  |   				   | --> caseSensetive
+								[Route("{id:int}")]            |  
+								public int Get(int id){return id;}
+					
+				
+				[FromBody]
+					Fica responsavel por sinalizar quem deve receber as informacoes do corpo da requisicao(body)
+					
+					
+				A utilização de Task juntamente com o ActionResult
+					
+					Ao utilizar o Task, iremos trabalhar de uma forma asincrona, ou seja, nao iremos paralizar o thread 
+					principal do projeto, tornando assim a aplicação mais rapida e paralela, pois iremos realizara criacao
+					de thread.
+					
+						A utilização do ActionResult, fornece respostas muito mais adequadas quando iremos realizar um 
+						response.
+								NotFound();
+								
+				
+				
+				
+				
+				Microsoft.EntityFrameworkCore.InMemory
+						
+						Trabalhar para entender os conceitos primordias antes do EF, antes de trabalhar com o sqlServer
+						
+						
+						Context
+							
+							E uma representacao do nosso banco de dados em memoria, ou seja,
+							nosso banco de dados pode ter 200 ou 500 tabelas, mas o context e o que vamos 
+							realmente trabalhar nesse banco de dados 
+									
+									Ele que permite que possamos realizar o mapeamento/orientacao da nossoa aplicacao em relacao ao nosso banco de dados
+									
+									
+							DbSet<>
+								
+								A representacao das classes em tabelas 
+								
+				
+				
+				Injeção de dependencia | Geralmente resolvemos no startup
+					
+						Em alguma parte do nosso codigo/aplicacao, vai necessitar de recursos para poder funcionar,
+						e o papel da injecao de dependencia e fornecer esses recursos, pois quem necessita não tem obrigacao
+						de procurar esse recurso para comeca a trabalhar, ou seja,a aplicacao e responsavel de fornecer.
+						
+							
+							Dependencia nas controller
+								
+									Toda controller necessita realizar uma comunicacao com o banco, para realizar o que for
+									necessario para aplicacao, ou seja, a aplicacao deve resolver essa dependencia
+									
+									Tirando como exemplo o sqlServer, para trablhar com ele deve ser atentar a alguns requisitos
+											
+											Deve ser atentar ao numero de conexao criadas/abertas, pois tem limite
+													
+													Para Resolver:
+														
+														service.AddScoped< DataContext, DataContext>
+																
+																O AddScoped, vai garantir que so terá uma conexao aberta pela requisicao, 
+																ou seja, durante as requisicao vai ser criada uma conexao com banco de dados, em caso de uma outra requisicao, será passado a mesma conexa, sem ter que abrir uma outra novamente
+																e será fechada/destruida quando terminar.
+																		
+																		Existem outras injecao de dependencias:
+																				AddAddTransient<> : Ira realizar a criacao de uma nova conexao no banco em todas as vezes que for solicitado
+																				
+																				AddSingleton<> : Ira realizar a criacao de apenas uma conexao no banco durante a execucao da aplicacao

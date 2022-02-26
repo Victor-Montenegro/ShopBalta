@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EXE0001" xml:space="preserve">
+    <value>Não foi possível criar a categoria</value>
+  </data>
   <data name="ISE0001" xml:space="preserve">
     <value>O campo {0} é obrigatorio</value>
   </data>
@@ -131,5 +134,8 @@
   </data>
   <data name="ISE0005" xml:space="preserve">
     <value>O campo {0} deve está entre os valores {1} e {2}</value>
+  </data>
+  <data name="ISE0006" xml:space="preserve">
+    <value>Categoria não encontrada</value>
   </data>
 </root>

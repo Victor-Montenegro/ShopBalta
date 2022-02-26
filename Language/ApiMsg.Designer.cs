@@ -61,6 +61,15 @@ namespace Shop.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não foi possível criar a categoria.
+        /// </summary>
+        public static string EXE0001 {
+            get {
+                return ResourceManager.GetString("EXE0001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O campo {0} é obrigatorio.
         /// </summary>
         public static string ISE0001 {
@@ -102,6 +111,15 @@ namespace Shop.Language {
         public static string ISE0005 {
             get {
                 return ResourceManager.GetString("ISE0005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categoria não encontrada.
+        /// </summary>
+        public static string ISE0006 {
+            get {
+                return ResourceManager.GetString("ISE0006", resourceCulture);
             }
         }
     }
