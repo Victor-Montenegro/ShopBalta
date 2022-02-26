@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Shop.Language;
+using System.Collections;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Shop.Models
@@ -10,11 +12,10 @@ namespace Shop.Models
         [Column("CategoryId")]
         public int Id { get; set; }
 
-        [Display(Name = "Titulo")]
-        [Required(ErrorMessage ="Necessario passar o campo Titulo.")]
-        [MaxLength(length: 200,ErrorMessage = "Numero maximo de caracteres 200.")]
-        [MinLength(length: 5,ErrorMessage = "Numero minimo de caracteres 5.")]
+        [Required(ErrorMessageResourceType = typeof(ApiMsg), ErrorMessageResourceName = "ISE0001")]
+        [MaxLength(60, ErrorMessageResourceType = typeof(ApiMsg), ErrorMessageResourceName = "ISE0002")]
+        [MinLength(3, ErrorMessageResourceType = typeof(ApiMsg), ErrorMessageResourceName = "ISE0004")]
         [DataType("NVARCHAR(200)")]
-        public string Title { get; set; }
+        public string Title{ get; set; }
     }
 }
