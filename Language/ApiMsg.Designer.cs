@@ -70,6 +70,42 @@ namespace Shop.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não possivel atualizar a categoria.
+        /// </summary>
+        public static string EXE0002 {
+            get {
+                return ResourceManager.GetString("EXE0002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Essa categoria já foi atualizada.
+        /// </summary>
+        public static string EXE0003 {
+            get {
+                return ResourceManager.GetString("EXE0003", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possivel remover a categoria.
+        /// </summary>
+        public static string EXE0004 {
+            get {
+                return ResourceManager.GetString("EXE0004", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to As categorias não foram encontradas, tente novamente mais tarde.
+        /// </summary>
+        public static string EXE0005 {
+            get {
+                return ResourceManager.GetString("EXE0005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O campo {0} é obrigatorio.
         /// </summary>
         public static string ISE0001 {
@@ -120,6 +156,24 @@ namespace Shop.Language {
         public static string ISE0006 {
             get {
                 return ResourceManager.GetString("ISE0006", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categoria atualizada com sucesso.
+        /// </summary>
+        public static string ISE0007 {
+            get {
+                return ResourceManager.GetString("ISE0007", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categoria removida com sucesso.
+        /// </summary>
+        public static string ISE0008 {
+            get {
+                return ResourceManager.GetString("ISE0008", resourceCulture);
             }
         }
     }

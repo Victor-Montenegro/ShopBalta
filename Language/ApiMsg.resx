@@ -120,6 +120,18 @@
   <data name="EXE0001" xml:space="preserve">
     <value>Não foi possível criar a categoria</value>
   </data>
+  <data name="EXE0002" xml:space="preserve">
+    <value>Não possivel atualizar a categoria</value>
+  </data>
+  <data name="EXE0003" xml:space="preserve">
+    <value>Essa categoria já foi atualizada</value>
+  </data>
+  <data name="EXE0004" xml:space="preserve">
+    <value>Não foi possivel remover a categoria</value>
+  </data>
+  <data name="EXE0005" xml:space="preserve">
+    <value>As categorias não foram encontradas, tente novamente mais tarde</value>
+  </data>
   <data name="ISE0001" xml:space="preserve">
     <value>O campo {0} é obrigatorio</value>
   </data>
@@ -137,5 +149,11 @@
   </data>
   <data name="ISE0006" xml:space="preserve">
     <value>Categoria não encontrada</value>
+  </data>
+  <data name="ISE0007" xml:space="preserve">
+    <value>Categoria atualizada com sucesso</value>
+  </data>
+  <data name="ISE0008" xml:space="preserve">
+    <value>Categoria removida com sucesso</value>
   </data>
 </root>
