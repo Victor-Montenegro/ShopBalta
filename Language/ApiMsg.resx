@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EXE" xml:space="preserve">
+    <value />
+  </data>
   <data name="EXE0001" xml:space="preserve">
     <value>Não foi possível criar a categoria</value>
   </data>
@@ -131,6 +134,27 @@
   </data>
   <data name="EXE0005" xml:space="preserve">
     <value>As categorias não foram encontradas, tente novamente mais tarde</value>
+  </data>
+  <data name="EXE0006" xml:space="preserve">
+    <value>Não foi possível listar os produtos</value>
+  </data>
+  <data name="EXE0007" xml:space="preserve">
+    <value>Não foi possível listar o produto</value>
+  </data>
+  <data name="EXE0008" xml:space="preserve">
+    <value>Não foi possível listar os produtos dessa categoria</value>
+  </data>
+  <data name="EXE0009" xml:space="preserve">
+    <value>Não foi possível salvar o produto</value>
+  </data>
+  <data name="EXE0010" xml:space="preserve">
+    <value>Esse produto já foi atualizado</value>
+  </data>
+  <data name="EXE0011" xml:space="preserve">
+    <value>Não possível realizar a alteração do produto</value>
+  </data>
+  <data name="EXE0012" xml:space="preserve">
+    <value>Não foi possível remover o produto</value>
   </data>
   <data name="ISE0001" xml:space="preserve">
     <value>O campo {0} é obrigatorio</value>
@@ -155,5 +179,20 @@
   </data>
   <data name="ISE0008" xml:space="preserve">
     <value>Categoria removida com sucesso</value>
+  </data>
+  <data name="ISE0009" xml:space="preserve">
+    <value>Esse produto não existe</value>
+  </data>
+  <data name="ISE0010" xml:space="preserve">
+    <value>Não existe produtos dessa categoria</value>
+  </data>
+  <data name="ISE0011" xml:space="preserve">
+    <value>Produto salvo com sucesso</value>
+  </data>
+  <data name="ISE0012" xml:space="preserve">
+    <value>Produto alterado com sucesso</value>
+  </data>
+  <data name="ISE0013" xml:space="preserve">
+    <value>Produto removido com sucesso.</value>
   </data>
 </root>

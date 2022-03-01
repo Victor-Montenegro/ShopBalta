@@ -61,6 +61,15 @@ namespace Shop.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string EXE {
+            get {
+                return ResourceManager.GetString("EXE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Não foi possível criar a categoria.
         /// </summary>
         public static string EXE0001 {
@@ -102,6 +111,69 @@ namespace Shop.Language {
         public static string EXE0005 {
             get {
                 return ResourceManager.GetString("EXE0005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível listar os produtos.
+        /// </summary>
+        public static string EXE0006 {
+            get {
+                return ResourceManager.GetString("EXE0006", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível listar o produto.
+        /// </summary>
+        public static string EXE0007 {
+            get {
+                return ResourceManager.GetString("EXE0007", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível listar os produtos dessa categoria.
+        /// </summary>
+        public static string EXE0008 {
+            get {
+                return ResourceManager.GetString("EXE0008", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível salvar o produto.
+        /// </summary>
+        public static string EXE0009 {
+            get {
+                return ResourceManager.GetString("EXE0009", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Esse produto já foi atualizado.
+        /// </summary>
+        public static string EXE0010 {
+            get {
+                return ResourceManager.GetString("EXE0010", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não possível realizar a alteração do produto.
+        /// </summary>
+        public static string EXE0011 {
+            get {
+                return ResourceManager.GetString("EXE0011", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível remover o produto.
+        /// </summary>
+        public static string EXE0012 {
+            get {
+                return ResourceManager.GetString("EXE0012", resourceCulture);
             }
         }
         
@@ -174,6 +246,51 @@ namespace Shop.Language {
         public static string ISE0008 {
             get {
                 return ResourceManager.GetString("ISE0008", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Esse produto não existe.
+        /// </summary>
+        public static string ISE0009 {
+            get {
+                return ResourceManager.GetString("ISE0009", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não existe produtos dessa categoria.
+        /// </summary>
+        public static string ISE0010 {
+            get {
+                return ResourceManager.GetString("ISE0010", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produto salvo com sucesso.
+        /// </summary>
+        public static string ISE0011 {
+            get {
+                return ResourceManager.GetString("ISE0011", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produto alterado com sucesso.
+        /// </summary>
+        public static string ISE0012 {
+            get {
+                return ResourceManager.GetString("ISE0012", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produto removido com sucesso..
+        /// </summary>
+        public static string ISE0013 {
+            get {
+                return ResourceManager.GetString("ISE0013", resourceCulture);
             }
         }
     }
