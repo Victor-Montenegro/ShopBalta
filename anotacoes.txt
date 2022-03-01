@@ -48,6 +48,17 @@
 					
 					
 					
+					PACOTES USADOS : versao 3.1.0
+						
+							Microsoft.EntityFrameworkCore
+							Microsoft.EntityFrameworkCore.SqlServer
+							Microsoft.EntityFrameworkCore.Tools ---> Utilizar a ferramente de criacao de migration
+							Microsoft.EntityFrameworkCore.Design ---> auxilia a modelagem dos bancos e tabelas
+					
+					
+					
+					
+					
 					
 					CONFIGURACOES NO DOCKER
 							
@@ -62,9 +73,22 @@
 										
 										Hostname / Ports
 											garantir que esteja rodando na porta 1433
-													DOCKER PORT : 1433
+													DOCKER PORT : 1433 locahost:1433 sera? -->49154
 							
+					
+					
+					
+					
+					
+					CONECTAR COM O BANDO DE DADOS SQL SERVER DO DOCKER	
+						
 							
+								
+								SERVIDOR => localhost,1433
+								
+								username => sa
+								
+								password ==> a senha que voce colocou no docker => @$!H123Ss2
 							
 					
 					
@@ -244,3 +268,82 @@
 																				AddAddTransient<> : Ira realizar a criacao de uma nova conexao no banco em todas as vezes que for solicitado
 																				
 																				AddSingleton<> : Ira realizar a criacao de apenas uma conexao no banco durante a execucao da aplicacao
+																				
+				
+				
+				
+				Manipulando dados com EF
+					
+						
+								Persiste algo no banco : Insert
+											
+											Para realizar a persistencia no banco:	
+												
+														context.[EntidadeNoBanco].Add(modelo); ---> Ex: context.Category.Add(model);
+														
+														Se estiver trabalhando de forma assincrona 
+																context.SaveChagesAsync();
+														Se nao
+																context.SaveChages();
+																
+											Realizar a modificao/atualizazao dos dados : Update
+										
+												context.Entry<[EntidadeNoBanco]>(modelo).State = EntityState.Modified; ---> Ex: context.Entry<Category>(model).State = EntityState.Modified;
+												
+												await context.SaveChagesAsync();
+												
+											Realizar a remocao dos dados : Delete
+												
+													
+													Primeiro e necessario buscar o entidade do banco antes de realizar a remocao	
+															
+															var entidade = await context.[EntidadeDoBanco].FirtsOrDefaultAsync(eb => eb.Id == id); ---> ex: var category = await context.Category.FirtsOrDefaultAsync(x => x.Id == id);
+															
+															context.[entidadeDoBanco].Remove(entidade);
+															
+															await context.SaveChagesAsync();
+															
+															
+											
+											Realizar leitura dos dados : Get
+												
+														Quando realizamos o ato delecao de dados, podemos notar que utilizamos await(quando a aplicacao e assicrona), quando realizar esse get, existe varias informacoes que EF informa, dessa forma
+														existe um tempo gasto quando isso ocorre.
+														
+															Mas quando queremos apenas realizar o ato de leitura dos dados(get), nao necessitamos dessas informacoes do EF.
+																
+																Por isso utilizamos AsNoTrancking()
+																	
+																	var entidade = await context.EntidadeDoBanco.AsNoTrancking().ToListAsync();
+															
+																
+																OBS: Caso queria colocar filtro,skip, etc, sempre coloque antes do Tolist(), pois se realizar depois, irar realizar o filtro em memoria do servidor.
+															
+														
+										
+											
+											Conenctando ao banco de dados
+												
+													Quando vamos nos conectar ao banco de dados ao codigo, devemos criar uma ConnectionStrings no arquivo appsenttings
+														
+																"ConnectionStrings": {
+																	"ConnectionStrings" : "server=localhost,1433;database=shop;User ID=SA;Password=123bh@BV#$"
+																  }
+																	
+																Valor da ConnectionStrings  Quando tem senha: "server=localhost,1433;database=shop;User ID=SA;Password=123bh@BV#$"
+															
+																Valor da ConnectionStrings quando nao tem senha : "server=localhost,1433;database=shop;Integrated Security =SSPI"
+																
+																
+															
+															Realizar a instalacao dos pacotes tools e design do EF
+																
+															
+															
+															Realizar a criacao das migration com o comando
+																
+																	Add-Migration	nome da migration
+																	
+															depois para executar o que foi criado nas migration exeuctar o comando
+																
+																	 Update-Database
