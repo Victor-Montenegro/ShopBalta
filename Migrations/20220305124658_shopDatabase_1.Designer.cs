@@ -9,8 +9,8 @@ using Shop.Data;
 namespace Shop.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220301201945_DatabaseShop1")]
-    partial class DatabaseShop1
+    [Migration("20220305124658_shopDatabase_1")]
+    partial class shopDatabase_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,8 +69,9 @@ namespace Shop.Migrations
 
             modelBuilder.Entity("Shop.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("UserId")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -79,15 +80,15 @@ namespace Shop.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<string>("Role")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.ToTable("User");
                 });

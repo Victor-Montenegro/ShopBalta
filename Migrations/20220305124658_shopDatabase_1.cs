@@ -2,7 +2,7 @@
 
 namespace Shop.Migrations
 {
-    public partial class DatabaseShop1 : Migration
+    public partial class shopDatabase_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,7 @@ namespace Shop.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(maxLength: 20, nullable: false),
                     Password = table.Column<string>(maxLength: 20, nullable: false),
-                    Role = table.Column<string>(nullable: true)
+                    Role = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

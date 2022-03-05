@@ -54,6 +54,8 @@
 							Microsoft.EntityFrameworkCore.SqlServer
 							Microsoft.EntityFrameworkCore.Tools ---> Utilizar a ferramente de criacao de migration
 							Microsoft.EntityFrameworkCore.Design ---> auxilia a modelagem dos bancos e tabelas
+							Microsoft.AspNetCore.Authentication	--> Quem o usuario pode ser
+							Microsoft.AspNetCore.Authentication.JwtBearer --> O que o usuario pode fazer
 					
 					
 					
@@ -334,6 +336,8 @@
 															
 																Valor da ConnectionStrings quando nao tem senha : "server=localhost,1433;database=shop;Integrated Security =SSPI"
 																
+																													Server=(localdb)\mssqllocaldb;Database=Cursomvc;Integrated Security=true
+																
 																
 															
 															Realizar a instalacao dos pacotes tools e design do EF
@@ -347,3 +351,70 @@
 															depois para executar o que foi criado nas migration exeuctar o comando
 																
 																	 Update-Database
+																	 
+												
+												
+												
+												Autenticacao e autorização 
+												
+													Autenticacao nas API
+														
+														Na API voce nunca fica conectado, ou seja, o usuario passa usuario e senha, com isso e gerado um token, apos isso
+														a cada requisicao desse usuario ele vai ter que enviar o token no cabeçalho da requisicao(Authorization)
+															
+															Token : esse token um rash(string enorme) ficando num formato chamado JWT(Json web token) esse e o formato quando a string e descriptada
+															
+															Settings.cs : um a class static para facilitar a visualizacao da chave do token
+															
+															
+															var key = Encoding.ASCII.GetBytes(Settings.Secret); ---> realiza a transformacao da chave em bytes
+															
+															STARTUP.cs 
+																Configuracoes basicas para a autenticacao. O AddJwtBearer e de fato a autorizacao.
+																
+																	services.AddAuthentication(x => {
+																		x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+																		x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+																	}).AddJwtBearer(x =>            {
+																		x.RequireHttpsMetadata = false;
+																		x.SaveToken = true; --> informando que eu quero salvar o token
+																		x.TokenValidationParameters = new TokenValidationParameters
+																		{
+																			ValidateIssuerSigningKey = true, --> validar se realmente existe uma chave
+																			IssuerSigningKey = new SymmetricSecurityKey(key), --> validacao da chave que veio do front e chegou no back utilizando o conceito de chave simetrica passando a secret do projeto
+																			ValidateIssuer = false, --> validacao de quem mandou
+																			ValidateAudience = false --> validacao se a aplicacao faz parte de um parque de aplicacoes 
+																		};
+																	});
+																	
+																app.UseAuthentication(); --> habilitar a autenticacao do user
+																 app.UseAuthorization(); ---> utilziando o rows para autorizar o user
+																 
+													
+													Para facilitar a utilizacao do servico do token, iremos realziar a criacao de uma camada de servico, onde toda nossa aplicacao
+													pode utilizar e geracao de token do usuario
+													
+														
+														Na class static TokenService
+															
+																GenereteToken
+																	
+																		var tokenHandler = new JwtSecurityTokenHandler();
+																		var key = Encoding.ASCII.GetBytes(Settings.Secret);
+																		var tokenDescriptor = new SecurityTokenDescriptor() ---> tokenDescriptor e basicamente a descricao do nosso token, contendo toda a informacao necessaria que queremos 
+																		{
+																			Subject = new ClaimsIdentity(new Claim[] ---> no dotnet trabalhamos bastante com as ClaimIdentity, ou seja, uma forma de trabalhar as informacoes especificas do usuarios.
+																			{
+																				new Claim(ClaimTypes.Name, user.Id.ToString()), ---> uma identificao unica para identificar o usuario no token
+																				new Claim(ClaimTypes.Role, user.Role.ToString()) --> o tipo de acesso/autorizacao que o usuario tem
+																			}),
+																			Expires = DateTime.UtcNow.AddHours(2), -=--> data de expiracao do token
+																			SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),SecurityAlgorithms.HmacSha256Signature) ---> realizando a criptografia do token
+																		};
+
+																		var token = tokenHandler.CreateToken(tokenDescriptor);
+
+																		return tokenHandler.WriteToken(token);
+																	
+																	
+														

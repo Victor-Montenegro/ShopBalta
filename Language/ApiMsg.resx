@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EXE" xml:space="preserve">
-    <value />
-  </data>
   <data name="EXE0001" xml:space="preserve">
     <value>Não foi possível criar a categoria</value>
   </data>
@@ -155,6 +152,18 @@
   </data>
   <data name="EXE0012" xml:space="preserve">
     <value>Não foi possível remover o produto</value>
+  </data>
+  <data name="EXE0013" xml:space="preserve">
+    <value>Não foi possível retorna os usuários</value>
+  </data>
+  <data name="EXE0014" xml:space="preserve">
+    <value>Não foi possível retorna o usuário</value>
+  </data>
+  <data name="EXE0015" xml:space="preserve">
+    <value>Não foi possível salvar o usuário</value>
+  </data>
+  <data name="EXE0018" xml:space="preserve">
+    <value>Não foi possível realizar o login</value>
   </data>
   <data name="ISE0001" xml:space="preserve">
     <value>O campo {0} é obrigatorio</value>
@@ -194,5 +203,23 @@
   </data>
   <data name="ISE0013" xml:space="preserve">
     <value>Produto removido com sucesso.</value>
+  </data>
+  <data name="ISE0014" xml:space="preserve">
+    <value>O valor do campo {0} é invalido</value>
+  </data>
+  <data name="ISE0015" xml:space="preserve">
+    <value>Não existem usuários cadastrados</value>
+  </data>
+  <data name="ISE0016" xml:space="preserve">
+    <value>Esse usuário não existe </value>
+  </data>
+  <data name="ISE0017" xml:space="preserve">
+    <value>Usuário salvo com sucesso</value>
+  </data>
+  <data name="ISE0018" xml:space="preserve">
+    <value>Login ou senha invalidos</value>
+  </data>
+  <data name="ISE0019" xml:space="preserve">
+    <value>Login realizado</value>
   </data>
 </root>

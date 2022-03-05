@@ -15,6 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220301201945_DatabaseShop1.cs" />
+    <Compile Remove="Migrations\20220301201945_DatabaseShop1.Designer.cs" />
+    <Compile Remove="Migrations\20220305114623_DatabaseShop_1.cs" />
+    <Compile Remove="Migrations\20220305114623_DatabaseShop_1.Designer.cs" />
+    <Compile Remove="Migrations\20220305123641_shopDatabase_1.cs" />
+    <Compile Remove="Migrations\20220305123641_shopDatabase_1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>

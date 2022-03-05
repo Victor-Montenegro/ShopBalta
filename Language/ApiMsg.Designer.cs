@@ -61,15 +61,6 @@ namespace Shop.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string EXE {
-            get {
-                return ResourceManager.GetString("EXE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Não foi possível criar a categoria.
         /// </summary>
         public static string EXE0001 {
@@ -174,6 +165,42 @@ namespace Shop.Language {
         public static string EXE0012 {
             get {
                 return ResourceManager.GetString("EXE0012", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível retorna os usuários.
+        /// </summary>
+        public static string EXE0013 {
+            get {
+                return ResourceManager.GetString("EXE0013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível retorna o usuário.
+        /// </summary>
+        public static string EXE0014 {
+            get {
+                return ResourceManager.GetString("EXE0014", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível salvar o usuário.
+        /// </summary>
+        public static string EXE0015 {
+            get {
+                return ResourceManager.GetString("EXE0015", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível realizar o login.
+        /// </summary>
+        public static string EXE0018 {
+            get {
+                return ResourceManager.GetString("EXE0018", resourceCulture);
             }
         }
         
@@ -291,6 +318,60 @@ namespace Shop.Language {
         public static string ISE0013 {
             get {
                 return ResourceManager.GetString("ISE0013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O valor do campo {0} é invalido.
+        /// </summary>
+        public static string ISE0014 {
+            get {
+                return ResourceManager.GetString("ISE0014", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não existem usuários cadastrados.
+        /// </summary>
+        public static string ISE0015 {
+            get {
+                return ResourceManager.GetString("ISE0015", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Esse usuário não existe .
+        /// </summary>
+        public static string ISE0016 {
+            get {
+                return ResourceManager.GetString("ISE0016", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário salvo com sucesso.
+        /// </summary>
+        public static string ISE0017 {
+            get {
+                return ResourceManager.GetString("ISE0017", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login ou senha invalidos.
+        /// </summary>
+        public static string ISE0018 {
+            get {
+                return ResourceManager.GetString("ISE0018", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login realizado.
+        /// </summary>
+        public static string ISE0019 {
+            get {
+                return ResourceManager.GetString("ISE0019", resourceCulture);
             }
         }
     }
